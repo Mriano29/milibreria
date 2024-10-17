@@ -1,0 +1,47 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import Example from "./example.tsx";
+import * as MyFavourite from "./myfavourite.stories.tsx";
+
+<Meta of={MyFavourite} title="MyFavourite" />
+
+# MyFavourite
+
+Componente de icono para favoritos
+
+#### Example
+
+<Canvas of={MyFavourite.Primary} />
+
+## Usage
+
+```ts
+import {MyFavourite} from 'milibreria';
+
+function Example(){
+return (
+<MyFavourite
+ iconColor: "success",
+        disabled: false,
+        onClick: () => alert("Favorite Icon one"),
+/>
+);
+};
+
+export default Example;
+```
+
+<Canvas of={MyFavourite.Secondary} />
+
+## Usage
+
+```ts
+import {MyFavourite} from 'milibreria';
+
+function Example(){
+    return (
+<MyFavourite
+        iconColor: "warning",
+        disabled: true,
+/>
+);
+}

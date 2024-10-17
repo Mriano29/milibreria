@@ -1,0 +1,52 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import Example from "./example.tsx";
+import * as MiguelRR from "./miguelrr.stories.tsx";
+
+<Meta of={MiguelRR} title="MiguelRR" />
+
+# MiguelRR
+
+Componente de tipografia
+
+#### Example
+
+<Canvas of={MiguelRR.Primary} />
+
+## Usage
+
+```ts
+import {MiguelRR} from 'milibreria';
+
+function Example(){
+return (
+<MiguelRR
+        text: "Componente MiguelRR primario",
+        alignment: "center",
+        color: "success",
+        bottomMargin: true,
+        variant: "h1",
+/>
+);
+};
+
+export default Example;
+```
+
+<Canvas of={MiguelRR.Secondary} />
+
+## Usage
+
+```ts
+import {MiguelRR} from 'milibreria';
+
+function Example(){
+    return (
+<MiguelRR
+        text: "Componente MiguelRR secundario",
+        alignment: "right",
+        color: "warning",
+        bottomMargin: false,
+        variant: "caption",
+/>
+);
+}

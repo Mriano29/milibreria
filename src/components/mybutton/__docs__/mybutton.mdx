@@ -1,0 +1,61 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import Example from "./example.tsx";
+import * as MyCustomButton from "./mybutton.stories.tsx";
+
+<Meta of={MyCustomButton} title="MyCustomButton" />
+
+# MyCustomButton
+
+Componente de botón con diferentes especializaciones.
+
+#### Example
+
+<Canvas of={MyCustomButton.Primary} />
+
+## Usage
+
+```ts
+import {MyCustomButton} from 'milibreria';
+
+function Example(){
+return (
+<MyCustomButton
+text: "Button primary",
+txtcolor: 'black',
+bgcolor: 'red',
+disabled: false,
+size: "small",
+borderColor:"blue",
+hoverTxtColor:"white", 
+hoverColor: "cyan",
+onClick: () => alert("Button Primary"),
+/>
+);
+};
+
+export default Example;
+```
+
+<Canvas of={MyCustomButton.Secondary} />
+
+## Usage
+
+```ts
+import {MyCustomButton} from 'milibreria';
+
+function Example(){
+    return (
+<MyCustomButton
+text: "Button secondary",
+txtcolor: 'white',
+bgcolor: 'pink',
+disabled: false,
+size: "small",
+borderColor:"yellow",
+borderWidth:"large",
+hoverTxtColor:"black", 
+hoverColor: "cyan",
+onClick: () => alert("Button Secondary"),
+/>
+);
+}
