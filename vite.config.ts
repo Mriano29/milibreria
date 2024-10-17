@@ -2,24 +2,29 @@
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import { peerDependencies } from "./package.json";
+
 export default defineConfig({
-build: {
-lib: {
-entry: "./src/index.ts", // Especifica el punto de entrada
-name: "milibreria", // Establece el nombre de la biblioteca generada.
-fileName: (format) => `index.${format}.js`, // Genera el nombre del archivo de salida según el formato.
-formats: ["cjs", "es"], // Especifica los formatos de salida (módulos CommonJS y ES).
-},
-rollupOptions: {
-external: [...Object.keys(peerDependencies)], // Define dependencias externas para rollup.
-},
-sourcemap: true, // Genera sourcemaps para depurar.
-emptyOutDir: true, // Borra el directorio de salida antes de compilar.
-},
-plugins: [dts()], // Utiliza el complemento 'vite-plugin-dts' para generar archivos de declaración de TypeScript (d.ts).
-test: {
-    globals: true,
-    environment: "jsdom",
-    setupFiles: "./setupTests.ts",
+  build: {
+    lib: {
+      entry: "./src/index.ts", // Punto de entrada de la librería.
+      name: "milibreria", // Nombre de la librería.
+      fileName: (format) => `index.${format}.js`, // Formato de los archivos de salida.
+      formats: ["cjs", "es"], // Formatos: CommonJS y ES Module.
     },
+    rollupOptions: {
+      external: [...Object.keys(peerDependencies)], // Excluir dependencias peer de la librería.
+    },
+    sourcemap: true, // Habilita sourcemaps para depuración.
+    emptyOutDir: true, // Limpia el directorio de salida antes de la compilación.
+  },
+  plugins: [
+    dts({
+      insertTypesEntry: true, // Inserta automáticamente un archivo de declaración de tipos (index.d.ts).
+    }),
+  ],
+  test: {
+    globals: true, // Habilita variables globales en las pruebas.
+    environment: "jsdom", // Establece "jsdom" como entorno de pruebas.
+    setupFiles: "./setupTests.ts", // Archivo de configuración de pruebas.
+  },
 });

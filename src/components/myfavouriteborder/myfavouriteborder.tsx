@@ -8,13 +8,14 @@ export interface MyFavouriteBorderProps{
     onClick?: MouseEventHandler<HTMLButtonElement>; //Evento al hacer click
 }
 //Definicion del componente
-export default function MyFavouriteBorder(props: MyFavouriteBorderProps){
+function MyFavouriteBorder(props: MyFavouriteBorderProps){
     //Paso el valor de las props
     const {iconColor, disabled, onClick} = props
     return(
         //Personalizo el componente
         <IconButton disabled={disabled} onClick={onClick}>
-            <FavoriteBorderIcon color={iconColor}/>
+        <FavoriteBorderIcon color={iconColor}/>
         </IconButton>
     )
 }
+export default MyFavouriteBorder;

@@ -1,10 +1,12 @@
 import { expect } from "vitest";
 import * as matchers from "@testing-library/jest-dom/matchers";
-import { TestingLibraryMatchers } from "@testing-library/jest-dom/matchers";
-declare module "vitest" {
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-interface Assertion<T = any>
-extends jest.Matchers<void, T>,
-TestingLibraryMatchers<T, void> {}
-}
+// Importa jest-dom para usar aserciones adicionales como toBeInTheDocument()
+import '@testing-library/jest-dom';
+
+// Extender expect con los matchers de jest-dom
 expect.extend(matchers);
+
+// Extender la interfaz Assertion de Vitest para que incluya los matchers de jest-dom
+declare module "vitest" {
+  interface Assertion<T = any> extends jest.Matchers<void, T>, matchers.TestingLibraryMatchers<T, void> {}
+}

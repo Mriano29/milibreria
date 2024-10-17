@@ -8,7 +8,7 @@ export interface MyFavouriteProps{
     onClick?: MouseEventHandler<HTMLButtonElement>; //Evento al hacer click
 }
 //Definicion del componente
-export default function MyFavourite(props: MyFavouriteProps){
+function MyFavourite(props: MyFavouriteProps){
     //Paso el valor de las props
     const {iconColor, disabled, onClick} = props
     return(
@@ -18,3 +18,4 @@ export default function MyFavourite(props: MyFavouriteProps){
         </IconButton>
     )
 }
+export default MyFavourite;
