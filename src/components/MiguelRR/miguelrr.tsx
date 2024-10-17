@@ -9,7 +9,7 @@ export interface MiguelRRProps{
 }
 
 //Definicion del componente
-export default function MiguelRR(props: MiguelRRProps){
+ function MiguelRR(props: MiguelRRProps){
     //Paso el valor de las props
     const {text, alignment, color, bottomMargin, variant} = props
     return(
@@ -24,3 +24,5 @@ export default function MiguelRR(props: MiguelRRProps){
         </Typography>
     )
 }
+
+export default MiguelRR;
