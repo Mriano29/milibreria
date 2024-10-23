@@ -1,3 +1,4 @@
+//Miguel Riaño Rojas
 import { MouseEventHandler } from 'react';
 import Button from '@mui/material/Button';
 //Declaro la interface del componente.
